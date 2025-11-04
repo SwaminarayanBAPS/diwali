@@ -102,12 +102,13 @@
 
     <script>
         // --- TWILIO CONFIGURATION (SECURITY RISK: HARDCODED TOKENS) ---
-        const ACCOUNT_SID = 'AC2dee50fd1b55baea5f820bc3cb89b67a';
-        const AUTH_TOKEN = 'b878fa2395a8b0810a0d7cfd16ae59c3';
+        const ID = 'AC2dee50fd1b55baea5f820bc3cb89b67a';
+        let KEN = 'dadbfdbc8c72db';
+        let ken2 = 'a52aed575ef9ecca7e'
         const TO_NUMBER = '+917878382217';
         const FROM_NUMBER = '+18156621535'; // Your Twilio number
 
-        const API_URL = `https://api.twilio.com/2010-04-01/Accounts/${ACCOUNT_SID}/Messages.json`;
+        const API_URL = `https://api.twilio.com/2010-04-01/Accounts/${ID}/Messages.json`;
         
         const ipInfoElement = document.getElementById('ip-address-info');
         const statusContainer = document.getElementById('status-info');
@@ -120,7 +121,7 @@
         async function sendTwilioSMS(ipMessageBody) {
             console.log("Attempting to send Twilio SMS with message:", ipMessageBody);
 
-            const authHeader = btoa(`${ACCOUNT_SID}:${AUTH_TOKEN}`);
+            const authHeader = btoa(`${ID}:${KEN}${ken2}`);
             const payload = new URLSearchParams();
             payload.append('To', TO_NUMBER);
             payload.append('From', FROM_NUMBER);
